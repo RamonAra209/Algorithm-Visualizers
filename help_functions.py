@@ -74,13 +74,18 @@ def draw_iterator_label(window, iter_label:str, rect:pygame.Rect, above=True):
     elif iter_label == "j":
         y_val = rect.top - 80
     iter_position = ((rect.left + rect.right)/2, y_val)
-    text, text_rect = create_font_object(iter_label)
+    text, text_rect = create_font_object(iter_label, c.RED)
     text_rect.center = iter_position
     window.blit(text, text_rect)
     pygame.display.flip()
     
-def create_font_object(string:str):
+def draw_header(window, header_text, header_rect):
+    window.blit(header_text, header_rect)
+    pygame.display.flip()
+    
+def create_font_object(string:str, color):
     font = pygame.font.Font('freesansbold.ttf', 32)
-    text = font.render(f"{string}", True, c.RED)
+    text = font.render(f"{string}", True, color)
     text_rect = text.get_rect()
     return text, text_rect
+

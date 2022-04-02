@@ -3,9 +3,12 @@ import time
 import pygame
 import help_functions as hf
 import constants as c
+import random
 from Brute_Force_Algorithms import bubble_sort  
 
-test_arr = [9, 1, 7, 99, 4, 39, 22, 96]
+test_arr = list(range(1, 7))
+random.shuffle(test_arr)
+
 pygame.init()
 pygame.font.init()
 font = pygame.font.Font('freesansbold.ttf', 32)
@@ -34,4 +37,9 @@ while running:
         time.sleep(3)
     pygame.display.flip() #* Updates window contents, keep at bottom
     # pygame.display.update()
+   
+   
+   
+   
+   
     
