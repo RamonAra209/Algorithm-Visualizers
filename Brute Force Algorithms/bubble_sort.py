@@ -1,5 +1,8 @@
-import random
-
+import help_functions as hf
+from .. import constants as c
+#* Original Bubble Sort
+#? Best Case: n^2
+#? Worst Case: n^2
 def bubble_sort(arr:list) -> list:
     n = len(arr)
     for i in range(0, n):
@@ -7,15 +10,10 @@ def bubble_sort(arr:list) -> list:
             if arr[j + 1] < arr[j]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
-                
-                
-nums = random.sample(range(0, 999999999), 1000) # selecting 500 random nums in specifed range
-# print(f"Original list: {nums}")
 
-nums = bubble_sort(nums)
-# print(f"Sorted list via bubble sort: {nums}")
-
-if bubble_sort(nums) == sorted(nums):
-    print("Bubble Sort worked correctly")
-else:
-    print("Did not do it right")
+#* Graphical Implementation of Bubble Sort
+def graphic_bubble_sort(window, arr:list):
+    n = len(arr)
+    num_dict = hf.create_rects_on_list(arr, c.WIN_WIDTH, c.WIN_HEIGHT)
+    hf.add_recs_to_screen(window, num_dict)
+             
