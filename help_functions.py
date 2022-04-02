@@ -58,12 +58,29 @@ def draw_swap_labels(window, rect_one:pygame.Rect, rect_two:pygame.Rect, val_one
     # Label saying what values being swapped
     font = pygame.font.Font('freesansbold.ttf', 32) 
     text = font.render(f"Swapping {val_one} and {val_two}", True, c.RED)
-    print(text)
+    # print(text)
     text_rect = text.get_rect()
     text_rect.center = (c.WIN_WIDTH / 2, c.WIN_HEIGHT/2 + 130)
-    print(text_rect)
+    # print(text_rect)
     window.blit(text, text_rect)
-    print("Added text to screen supposedly")
+    # print("Added text to screen supposedly")
+    pygame.display.flip()
     
-# def iterator_label(window, iter_label:chr, rect):
+         
+def draw_iterator_label(window, iter_label:str, rect:pygame.Rect, above=True):  
+    y_val = None
+    if iter_label == "i":
+        y_val = rect.top - 30
+    elif iter_label == "j":
+        y_val = rect.top - 80
+    iter_position = ((rect.left + rect.right)/2, y_val)
+    text, text_rect = create_font_object(iter_label)
+    text_rect.center = iter_position
+    window.blit(text, text_rect)
+    pygame.display.flip()
     
+def create_font_object(string:str):
+    font = pygame.font.Font('freesansbold.ttf', 32)
+    text = font.render(f"{string}", True, c.RED)
+    text_rect = text.get_rect()
+    return text, text_rect
