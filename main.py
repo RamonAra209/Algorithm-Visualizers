@@ -1,6 +1,7 @@
 import os
 import time
 import pygame
+from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort
 import help_functions as hf
 import constants as c
 import random
@@ -26,20 +27,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    
-    # window.fill(c.BACKGROUND_COLOR)
-    
-    # hf.add_recs_to_screen(window, rects_dict)
-    # rects_dict = hf.update_rects_positions(rects_dict)    
-    # rects_dict = hf.swap_indices(window, rects_dict, 1, 5)
-    running = bubble_sort.graphic_bubble_sort(window, test_arr)
+    # running = bubble_sort.graphic_bubble_sort(window, test_arr)
+    running = graphic_selection_sort(window, test_arr)
     if running == False:
         time.sleep(3)
     pygame.display.flip() #* Updates window contents, keep at bottom
     # pygame.display.update()
-   
-   
-   
-   
-   
-    

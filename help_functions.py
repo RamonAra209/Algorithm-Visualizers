@@ -16,9 +16,6 @@ def create_rects_on_list(arr:list[int], win_width, win_height):
         num_dict[arr[i]] = temp_rect
     return num_dict
 
-
-#TODO Make a seperate function for updating the Rects position with move
-#TODO Squares to screen first, then update rect positions
 def add_recs_to_screen(window, rects:dict): 
     font = pygame.font.Font('freesansbold.ttf', 32)
     for num, rect in rects.items():
@@ -33,10 +30,6 @@ def update_rects_positions(rects:dict):
         rect = pygame.Rect.move(rect, 40, 35)
     return rects
     
-#? Idea on how to move blocks
-#? Since we saved the Rect object (i.e, positional values)
-#? We can just swap the the Rect Object values when you perform swaps in [x] Sorting Algorithm
-
 ###* Visualizer Labels
 def swap_indices(window, rects:dict, ind_one, ind_two):
     #keep in mind the dict is key=num, val=Rect
@@ -55,15 +48,11 @@ def draw_swap_labels(window, rect_one:pygame.Rect, rect_two:pygame.Rect, val_one
     pygame.draw.line(window, c.RED, ((rect_two.left + rect_two.right)/2, rect_two.bottom + 30),
                                   ((rect_two.left + rect_two.right)/2, rect_two.bottom + 10), width=3) 
 
-    # Label saying what values being swapped
     font = pygame.font.Font('freesansbold.ttf', 32) 
     text = font.render(f"Swapping {val_one} and {val_two}", True, c.RED)
-    # print(text)
     text_rect = text.get_rect()
     text_rect.center = (c.WIN_WIDTH / 2, c.WIN_HEIGHT/2 + 130)
-    # print(text_rect)
     window.blit(text, text_rect)
-    # print("Added text to screen supposedly")
     pygame.display.flip()
     
          
@@ -89,3 +78,6 @@ def create_font_object(string:str, color):
     text_rect = text.get_rect()
     return text, text_rect
 
+
+
+###* Graph Based Problems

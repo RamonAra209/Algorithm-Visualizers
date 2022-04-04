@@ -40,15 +40,15 @@ def graphic_bubble_sort(window, arr:list):
                 hf.draw_iterator_label(window, "i", num_dict[arr[i]])    
                 hf.draw_iterator_label(window, "j", num_dict[arr[j]])
                 num_dict= hf.swap_indices(window, num_dict, arr[j], arr[j+1])
-                time.sleep(1.5)
+                time.sleep(c.SLEEP_TIME)
                 timer_flag = True
             if timer_flag == False:
-                time.sleep(1.5)
+                time.sleep(c.SLEEP_TIME)
                 window.fill(c.BACKGROUND_COLOR)
                 hf.draw_header(window, header, header_rect)
                 hf.add_recs_to_screen(window, num_dict)
                 hf.draw_iterator_label(window, "i", num_dict[arr[i]])
-                hf.draw_iterator_label(window, "j", num_dict[arr[j]])
+                hf.draw_iterator_label(c.SLEEP_TIME)
         
         # font = pygame.font.Font('freesansbold.ttf', 32)
         # text = font.render("Successfully sorted", True, [0, 255, 0])
