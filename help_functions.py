@@ -81,3 +81,14 @@ def create_font_object(string:str, color):
 
 
 ###* Graph Based Problems
+class Point:
+    def __init__(self, x, y) -> None:
+        self.x = x
+        self.y = y
+    def get_point(self):
+        return (self.x, self.y)
+
+def draw_points(window, points:list):
+    for i in points:
+        pygame.draw.circle(window, c.BLACK, (i.x, i.y), radius=5) 
+    pygame.display.flip()

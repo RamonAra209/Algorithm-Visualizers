@@ -1,7 +1,8 @@
 import os
 import time
 import pygame
-from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort
+from Brute_Force_Algorithms.closest_pair import *
+from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort 
 import help_functions as hf
 import constants as c
 import random
@@ -28,7 +29,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     # running = bubble_sort.graphic_bubble_sort(window, test_arr)
-    running = graphic_selection_sort(window, test_arr)
+    # running = graphic_selection_sort(window, test_arr)
+    points = [5, 1] #! Delete this, just a palceholder
+    running = graphic_closest_pair(window, points)
     if running == False:
         time.sleep(3)
     pygame.display.flip() #* Updates window contents, keep at bottom
