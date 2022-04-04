@@ -1,12 +1,11 @@
-import os
-import time
-import pygame
+import pygame, time, random
 from Brute_Force_Algorithms.closest_pair import *
-from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort 
+from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort
+from Divide_and_Conquer.Binary_Tree_Sort.bts import binary_tree_sort 
 import help_functions as hf
 import constants as c
-import random
 from Brute_Force_Algorithms import bubble_sort  
+from Divide_and_Conquer import *
 
 test_arr = list(range(1, 7))
 random.shuffle(test_arr)
@@ -20,19 +19,30 @@ pygame.display.set_caption("That's not a bug, its a feature")
 
 running = True
 clock = pygame.time.Clock()
-# rects_dict = hf.create_rects_on_list(test_arr, c.WIN_WIDTH, c.WIN_HEIGHT)
+algorithm_choice = hf.print_console_menu() 
+print(f"Algorithm Choice = {algorithm_choice}")
 
+if algorithm_choice != 4:
+    pygame.display.toggle_fullscreen()
 while running:    
     clock.tick(60)
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    # running = bubble_sort.graphic_bubble_sort(window, test_arr)
-    # running = graphic_selection_sort(window, test_arr)
-    points = [5, 1] #! Delete this, just a palceholder
-    running = graphic_closest_pair(window, points)
+    
+    if algorithm_choice == 1:
+        running = bubble_sort.graphic_bubble_sort(window, test_arr)
+    elif algorithm_choice == 2:
+        running = graphic_selection_sort(window, test_arr)
+    elif algorithm_choice == 3:
+        running = graphic_closest_pair(window)
+    elif algorithm_choice == 4:
+        pygame.display.quit()
+        running = binary_tree_sort()
     if running == False:
         time.sleep(3)
-    pygame.display.flip() #* Updates window contents, keep at bottom
-    # pygame.display.update()
+    if algorithm_choice != 4:
+        pygame.display.flip() #* Updates window contents, keep at bottom
+
+    

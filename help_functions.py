@@ -2,6 +2,18 @@ import pygame
 from pygame import Rect
 import constants as c
 
+def print_console_menu() -> int:
+    print("Which Algorithm would you like to see?")
+    print("\tBrute Force")
+    print("\t\t1. Bubble Sort (Graphically)")
+    print("\t\t2. Selection Sort (Graphically)")
+    print("\t\t3. Closest Pair (Graphically)")
+     
+    print("\tDivide and Conquer")
+    print("\t\t4. Binary Tree Sort (Console Based)")
+
+    return int(input("Enter number corresponding to algorithm you want to see: "))
+
 def create_rects_on_list(arr:list[int], win_width, win_height):
     num_dict = {} # Dict = {key=int_in_arr, val=Rect_Object}
     len_arr = len(arr)
@@ -51,7 +63,7 @@ def draw_swap_labels(window, rect_one:pygame.Rect, rect_two:pygame.Rect, val_one
     font = pygame.font.Font('freesansbold.ttf', 32) 
     text = font.render(f"Swapping {val_one} and {val_two}", True, c.RED)
     text_rect = text.get_rect()
-    text_rect.center = (c.WIN_WIDTH / 2, c.WIN_HEIGHT/2 + 130)
+    text_rect.center = (c.WIN_WIDTH / 2, c.WIN_HEIGHT/2 + 200)
     window.blit(text, text_rect)
     pygame.display.flip()
     
