@@ -62,8 +62,3 @@ def graphic_selection_sort(window, arr:list):
     pygame.display.flip()
 
     return False
-
-test_arr = list(range(1, 999))
-random.shuffle(test_arr)
-if selection_sort(test_arr) == sorted(test_arr):
-    print("Sorted Correctly")
