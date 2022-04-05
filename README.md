@@ -9,7 +9,7 @@ The language of choice is Python. Moreover, I am using the library Pygame to cre
 
 ## Ok but how do I run it to make sure your code works?
 1. Clone the code > cd into directory 
-2. Make sure you have python installed
+2. Make sure you have python and pip installed
 3. Initialize virtual environment with 'python -m venv .venv"
 4. run 'source .venv/bin/activate to activate virtual environment 
 5. run 'pip install -r requirements.txt'

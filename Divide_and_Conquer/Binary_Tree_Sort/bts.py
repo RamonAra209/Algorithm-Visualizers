@@ -66,6 +66,7 @@ def binary_tree_sort():
     print("\n")
     print(f"Root = {root_val}")
     print(f"Numbers you entered {nums}")
+    print(f"Inorder Traversal: ", end=" ")
     root.print_tree()
     print(f"\nHeight: {height(root)}")
     return False

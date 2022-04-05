@@ -21,14 +21,14 @@ def closest_points(points:list):
     
     return index1, index2
 
-def graphic_closest_pair(window):
+def graphic_closest_pair(window, num_points):
     header, header_rect = hf.create_font_object("Closest Pair (Brute Force)", c.BLACK) 
     header_rect.center = (c.WIN_WIDTH/2, 75)
     left, top = 100, 100
     width, height = c.WIN_WIDTH - 200, c.WIN_HEIGHT - 300
     border_rect = pygame.Rect(left, top, width, height)
 
-    points = generate_points(10, left, top, width, height)
+    points = generate_points(num_points, left, top, width, height)
     condensed_draw(window, points, header, header_rect, border_rect)
     
     n = len(points)
@@ -45,7 +45,7 @@ def graphic_closest_pair(window):
                 pygame.draw.line(window, c.BLUE, points[index1].get_point(), points[index2].get_point(), width=3)
             pygame.draw.line(window, c.RED, points[i].get_point(), points[j].get_point(), width=3) 
             pygame.display.flip()
-            time.sleep(0.075)
+            time.sleep(0.125)
             if d < dmin:
                 condensed_draw(window, points, header, header_rect, border_rect)
                 pygame.draw.line(window, c.BLUE, points[i].get_point(), points[j].get_point(), width=3)

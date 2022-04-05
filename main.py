@@ -1,4 +1,4 @@
-import pygame, time, random
+import pygame, time, random, os
 from Brute_Force_Algorithms.closest_pair import *
 from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort
 from Divide_and_Conquer.Binary_Tree_Sort.bts import binary_tree_sort 
@@ -7,6 +7,17 @@ import constants as c
 from Brute_Force_Algorithms import bubble_sort  
 from Divide_and_Conquer import *
 
+print("\n")
+hf.print_console_menu() 
+algorithm_choice = input("\nEnter number corresponding to algorithm you want to see: ") 
+algorithm_choice = int(algorithm_choice)
+print("NOTE: Graphics based option will open new window either in background or foreground")
+print("\tI can guarantee foreground on mac, don't know about windows\n")
+if algorithm_choice == 4:
+    print("Binary Tree Sort:")
+    binary_tree_sort()
+    exit()
+
 test_arr = list(range(1, 7))
 random.shuffle(test_arr)
 
@@ -14,16 +25,11 @@ pygame.init()
 pygame.font.init()
 font = pygame.font.Font('freesansbold.ttf', 32)
 window = pygame.display.set_mode((c.WIN_WIDTH, c.WIN_HEIGHT)) # (width, height)
-
 pygame.display.set_caption("That's not a bug, its a feature")
 
 running = True
 clock = pygame.time.Clock()
-algorithm_choice = hf.print_console_menu() 
-print(f"Algorithm Choice = {algorithm_choice}")
 
-if algorithm_choice != 4:
-    pygame.display.toggle_fullscreen()
 while running:    
     clock.tick(60)
     
@@ -32,17 +38,15 @@ while running:
             running = False
     
     if algorithm_choice == 1:
-        running = bubble_sort.graphic_bubble_sort(window, test_arr)
+        running = bubble_sort.graphic_bubble_sort(window,test_arr)
     elif algorithm_choice == 2:
         running = graphic_selection_sort(window, test_arr)
     elif algorithm_choice == 3:
-        running = graphic_closest_pair(window)
-    elif algorithm_choice == 4:
-        pygame.display.quit()
-        running = binary_tree_sort()
+        running = graphic_closest_pair(window, num_points=12)
+
     if running == False:
         time.sleep(3)
     if algorithm_choice != 4:
         pygame.display.flip() #* Updates window contents, keep at bottom
 
-    
+print("\nThanks for using the visualizer!")

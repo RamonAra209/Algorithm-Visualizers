@@ -2,7 +2,7 @@ import pygame
 from pygame import Rect
 import constants as c
 
-def print_console_menu() -> int:
+def print_console_menu():
     print("Which Algorithm would you like to see?")
     print("\tBrute Force")
     print("\t\t1. Bubble Sort (Graphically)")
@@ -11,8 +11,6 @@ def print_console_menu() -> int:
      
     print("\tDivide and Conquer")
     print("\t\t4. Binary Tree Sort (Console Based)")
-
-    return int(input("Enter number corresponding to algorithm you want to see: "))
 
 def create_rects_on_list(arr:list[int], win_width, win_height):
     num_dict = {} # Dict = {key=int_in_arr, val=Rect_Object}
