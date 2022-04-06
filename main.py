@@ -1,7 +1,7 @@
 import pygame, time, random, os
 from Brute_Force_Algorithms.closest_pair import *
 from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort
-from Divide_and_Conquer.Binary_Tree_Sort.bts import binary_tree_sort 
+from Divide_and_Conquer.bts import binary_tree_sort 
 import help_functions as hf
 import constants as c
 from Brute_Force_Algorithms import bubble_sort  
