@@ -1,5 +1,4 @@
 import math
-import random
 
 test_arr = [3, 2, 4, 1, 5, 6, 8, 7] # len = 6
 
@@ -38,12 +37,3 @@ def merge(b:list, c:list, a:list):
     
     return a
 
-# print(f"Result = {merge_sort(test_arr)}")
-random_arr = []
-for i in range(3000):
-    random_arr.append(random.randint(1, 1000000)) 
-if merge_sort(random_arr) == sorted(random_arr):
-    print("Sorted 3000 elements correctly")
-else:
-    print("Nah bruh it aint work")
-    

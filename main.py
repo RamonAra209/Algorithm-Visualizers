@@ -25,6 +25,7 @@ pygame.init()
 pygame.font.init()
 font = pygame.font.Font('freesansbold.ttf', 32)
 window = pygame.display.set_mode((c.WIN_WIDTH, c.WIN_HEIGHT)) # (width, height)
+# window = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
 pygame.display.set_caption("That's not a bug, its a feature")
 
 running = True
@@ -42,7 +43,7 @@ while running:
     elif algorithm_choice == 2:
         running = graphic_selection_sort(window, test_arr)
     elif algorithm_choice == 3:
-        running = graphic_closest_pair(window, num_points=12)
+        running = graphic_closest_pair(window, num_points=10)
 
     if running == False:
         time.sleep(3)

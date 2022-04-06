@@ -45,7 +45,7 @@ def graphic_closest_pair(window, num_points):
                 pygame.draw.line(window, c.BLUE, points[index1].get_point(), points[index2].get_point(), width=3)
             pygame.draw.line(window, c.RED, points[i].get_point(), points[j].get_point(), width=3) 
             pygame.display.flip()
-            time.sleep(0.125)
+            time.sleep(0.025)
             if d < dmin:
                 condensed_draw(window, points, header, header_rect, border_rect)
                 pygame.draw.line(window, c.BLUE, points[i].get_point(), points[j].get_point(), width=3)
@@ -58,7 +58,7 @@ def graphic_closest_pair(window, num_points):
     condensed_draw(window, points, header, header_rect, border_rect)
     pygame.draw.line(window, c.GREEN, points[index1].get_point(), points[index2].get_point(), width=3)
     correct_text, correct_rect = hf.create_font_object("Found Shortest Path", c.GREEN)
-    correct_rect.center = (c.WIN_WIDTH/2, c.WIN_HEIGHT/2 + 250)
+    correct_rect.center = (c.WIN_WIDTH/2, c.WIN_HEIGHT - 150)
     window.blit(correct_text, correct_rect)
     pygame.display.flip()
     time.sleep(3)
