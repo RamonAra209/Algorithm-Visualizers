@@ -19,7 +19,9 @@ def graphic_selection_sort(window, arr:list):
     header_rect.center = (c.WIN_WIDTH/2, 75)
     
     n = len(arr)
-    num_dict = hf.create_rects_on_list(arr, c.WIN_WIDTH, c.WIN_HEIGHT)
+    x_pos = c.WIN_WIDTH / 2 - (len(arr) * 50)
+    y_pos = c.WIN_HEIGHT / 2 - 100
+    num_dict = hf.create_rects_on_list(arr, x_pos, y_pos)
     
     for i in range(0, n):
         min = i

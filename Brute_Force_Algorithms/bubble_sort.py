@@ -16,10 +16,12 @@ def bubble_sort(arr:list) -> list:
 #* Graphical Implementation of Bubble Sort
 def graphic_bubble_sort(window, arr:list):
     header, header_rect = hf.create_font_object("Bubble Sort", c.BLACK)
-    header_rect.center = (c.WIN_WIDTH/2, 75)
+    header_rect.center = (c.HEADER_X, c.HEADER_Y)
     
     n = len(arr)
-    num_dict = hf.create_rects_on_list(arr, c.WIN_WIDTH, c.WIN_HEIGHT)
+    x_pos = c.WIN_WIDTH / 2 - (len(arr) * 50)
+    y_pos = c.WIN_HEIGHT / 2 - 100
+    num_dict = hf.create_rects_on_list(arr, x_pos, y_pos)
     for i in range(0, n):
         window.fill(c.BACKGROUND_COLOR)
         hf.draw_header(window, header, header_rect)
