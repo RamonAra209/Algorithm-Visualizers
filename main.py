@@ -1,7 +1,8 @@
 import pygame, time, random, os
 from Brute_Force_Algorithms.closest_pair import *
 from Brute_Force_Algorithms.selection_sort import graphic_selection_sort, selection_sort
-from Divide_and_Conquer.bts import binary_tree_sort 
+from Divide_and_Conquer.bts import binary_tree_sort
+from Divide_and_Conquer.merge_sort import graphic_merge_sort, merge_sort 
 import help_functions as hf
 import constants as c
 from Brute_Force_Algorithms import bubble_sort  
@@ -44,9 +45,12 @@ while running:
         running = graphic_selection_sort(window, test_arr)
     elif algorithm_choice == 3:
         running = graphic_closest_pair(window, num_points=10)
+    elif algorithm_choice == 5:
+        test_arr = [1, 2, 3, 4, 5, 6, 7, 8]
+        running = graphic_merge_sort(window, test_arr)
 
     if running == False:
-        time.sleep(3)
+        time.sleep(5)
     if algorithm_choice != 4:
         pygame.display.flip() #* Updates window contents, keep at bottom
 

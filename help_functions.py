@@ -11,17 +11,19 @@ def print_console_menu():
      
     print("\tDivide and Conquer")
     print("\t\t4. Binary Tree Sort (Console Based)")
+    print("\t\t5. Merge Sort")
 
-def create_rects_on_list(arr:list[int], win_width, win_height):
+def create_rects_on_list(arr:list[int], x_pos:int, y_pos):
     num_dict = {} # Dict = {key=int_in_arr, val=Rect_Object}
     len_arr = len(arr)
     
     r_width, r_height = 100, 100
-    starting_x = win_width / 2 - (len(arr) * 50)
-    starting_y = win_height / 2 - 100    
+    # x_pos = win_width / 2 - (len(arr) * 50)
+    # y_pos = win_height / 2 - 100    
+
     for i in range(0, len_arr):
-        left = starting_x + (i * r_width)
-        top = starting_y
+        left = x_pos + (i * r_width)
+        top = y_pos
         temp_rect = pygame.Rect((left, top), (r_width, r_height))
         num_dict[arr[i]] = temp_rect
     return num_dict
@@ -35,9 +37,9 @@ def add_recs_to_screen(window, rects:dict):
         rect = pygame.Rect.move(rect, 40, 35)
         window.blit(temp_text, rect) # adds number to screen
         
-def update_rects_positions(rects:dict):
+def update_rects_positions(rects:dict, delta_x, delta_y):
     for rect in rects.values():
-        rect = pygame.Rect.move(rect, 40, 35)
+        rect = pygame.Rect.move(rect, delta_x, delta_y)
     return rects
     
 ###* Visualizer Labels
